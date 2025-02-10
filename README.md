@@ -25,3 +25,8 @@ select Eu.unique_id, E.name From Employees E left join EmployeeUNI Eu on Eu.id =
 ```sql
 select product_name, year, price from Sales left join Product on Sales.product_id = Product.product_id
 ```
+1581. Customer Who Visited but Did Not Make Any Transactions
+```sql
+select customer_id, count(Visits.visit_id) as count_no_trans From Visits left join Transactions on Visits.visit_id = Transactions.visit_id where transaction_id is null group by customer_id
+```
+
